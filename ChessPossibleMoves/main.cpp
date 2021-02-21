@@ -1,23 +1,25 @@
 #include "ReadFile.h"
+#include "Piece.h"
 
 #include <iostream>
 
-void initializeBoard(int chessBoard[8][8])
+void initializeBoard(Piece chessBoard[8][8])
 {
     for (auto i = 0; i < 8; i++) {
         for (auto j = 0; j < 8; j++) {
-            chessBoard[i][j] = 0;
+            chessBoard[i][j].colour = "0";
+            chessBoard[i][j].type = "0";
         }
     }
-    //return &chessBoard[0][0];
 }
-void printBoard(int *A, size_t width, size_t height)
+
+void printBoard(Piece A[8][8])
 {
-    for (size_t i = 0; i < height; ++i)
+    for (size_t i = 0; i < 8; ++i)
     {
-      for (size_t j = 0; j < width; ++j)
+      for (size_t j = 0; j < 8; ++j)
       {
-          std::cout << " A[" << i << "][" << j << "] = " << A[i * width + j];
+          std::cout << " A[" << i << "][" << j << "] = " << A[i][j].colour << " " << A[i][j].type;
       }
       std::cout << std::endl;
     }
@@ -25,8 +27,11 @@ void printBoard(int *A, size_t width, size_t height)
 
 int main()
 {
-    int chessBoard[8][8];
+    Piece chessBoard[8][8];
     initializeBoard(chessBoard);
-    printBoard(&chessBoard[0][0], 8, 8);
+    printBoard(chessBoard);
+
     readFile("Pieces.txt");
+
+    return 0;
 }

@@ -143,6 +143,7 @@
     <ClCompile Include="ReadFiles.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Piece.h" />
     <ClInclude Include="ReadFile.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
