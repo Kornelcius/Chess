@@ -1,10 +1,10 @@
 #include "ReadFile.h"
 
-#include<fstream>
+#include <fstream>
 #include <iostream>
 
 
-void readFile(std::string fileName) 
+void readFile(std::string fileName, Piece tablica[8][8]) 
 {
     std::string input;
 

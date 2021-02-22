@@ -31,7 +31,7 @@ int main()
     initializeBoard(chessBoard);
     printBoard(chessBoard);
 
-    readFile("Pieces.txt");
+    readFile("Pieces.txt", chessBoard);
 
     return 0;
 }
