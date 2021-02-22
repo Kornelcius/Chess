@@ -4,14 +4,14 @@
 #include <iostream>
 
 
-void readFile(std::string fileName, Piece tablica[8][8]) 
+void readFile(std::string filePath, Piece tablica[8][8]) 
 {
     std::string input;
-
 	std::fstream file;
 
-	file.open(fileName);
+	file.open(filePath);
 
+    //obs³uga braku bliku
     if (!file)
     {
       std::cout << "Error cannot open file!" << std::endl;
@@ -20,11 +20,13 @@ void readFile(std::string fileName, Piece tablica[8][8])
 
     while (getline(file, input))
     {
-        if (input.size() != 4) 
-       {
-            continue;
-       }
-       std::cout << "line: " << input << std::endl;
+
+      if (input.size() != 4) 
+      {
+        continue;
+      }
+
+      std::cout << "line: " << input << std::endl;
       //get piece color
       //get piece type
       switchDependingOnPieceColour(input[0]);
@@ -56,22 +58,22 @@ void switchDependingOnPieceType(int type)
   std::cout << "Piece type: ";
   switch (type)
     {
-    case 107:
+    case 107: //k
         std::cout << "King" << std::endl;
         break;
-    case 113:
+    case 113: //q
         std::cout << "Queen" << std::endl;
         break;
-    case 114:
+    case 114: //r
         std::cout << "Rook" << std::endl;
         break;
-    case 98:
+    case 98: //b
         std::cout << "Bishop" << std::endl;
         break;
-    case 110:
+    case 110: //n
         std::cout << "Knight" << std::endl;
         break;
-    case 112:
+    case 112: //p
         std::cout << "Pawn" << std::endl;
         break;
     default:

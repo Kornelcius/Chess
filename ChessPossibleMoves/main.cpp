@@ -30,8 +30,9 @@ int main()
     Piece chessBoard[8][8];
     initializeBoard(chessBoard);
     printBoard(chessBoard);
-
-    readFile("Pieces.txt", chessBoard);
+    std::string zmienna = "dupa";
+    std::cout << zmienna[0];
+    //readFile("Pieces.txt", chessBoard);
 
     return 0;
 }
