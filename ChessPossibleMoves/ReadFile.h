@@ -4,6 +4,6 @@
 
 
 void readFile(std::string fileName, Piece tablica[8][8]);
-void switchDependingOnPieceColour(char colour);
-void switchDependingOnPieceType(char type);
-void switchDependingOnPiecePosition(char x, char y);
+void getPieceColour(char colour);
+void getPieceType(char type);
+void getPiecePosition(char x, char y);

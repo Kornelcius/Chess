@@ -29,9 +29,9 @@ void readFile(std::string filePath, Piece tablica[8][8])
       std::cout << "line: " << input << std::endl;
       //get piece color
       //get piece type
-      switchDependingOnPieceColour(input[0]);
-      switchDependingOnPieceType(input[1]);
-      switchDependingOnPiecePosition(input[2], input[3]);
+      getPieceColour(input[0]);
+      getPieceType(input[1]);
+      getPiecePosition(input[2], input[3]);
       //get piece location in array coordinates - from [0][0] to [7][7]
       
      // std::cout << "input[0]: " << input[0] << std::endl;
@@ -43,7 +43,7 @@ void readFile(std::string filePath, Piece tablica[8][8])
     file.close();
 }
 
-void switchDependingOnPieceColour(char colour)
+void getPieceColour(char colour)
 {
     if (colour != 'b' && colour != 'w') 
     {
@@ -53,7 +53,7 @@ void switchDependingOnPieceColour(char colour)
 
 
 }
-void switchDependingOnPieceType(char type)
+void getPieceType(char type)
 {
   int pieceType = type;
   std::cout << "Piece type: ";
@@ -83,7 +83,7 @@ void switchDependingOnPieceType(char type)
     }
 }
 
-void switchDependingOnPiecePosition(char x, char y)
+void getPiecePosition(char x, char y)
 {
     int positionX = x;
     int positionY = y;
