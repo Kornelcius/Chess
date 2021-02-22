@@ -1,6 +1,8 @@
 #include "Piece.h"
 #include "ReadFile.h"
+#include "BoardFunctions.h"
 #include <iostream>
+#include <vector>
 
 void initializeBoard(Piece chessBoard[8][8])
 {
@@ -45,6 +47,40 @@ Position chooseFigure(Piece chessBoard[8][8])
     result.isValid = true;
 
     return result;
+}
+
+void getAllMoves(int x, int y, Piece chessBoard[8][8])
+{
+    std::string pieceType = chessBoard[x][y].type;
+    getAllMovesForType(x, y, pieceType);
+}
+
+void getAllMovesForType(int x, int y, std::string type)
+{
+    if (type == "King")
+    {
+        getAllMovesForKing(x, y);
+    }
+}
+
+void getAllMovesForKing(int x, int y)
+{
+    std::vector<Position> allMoves;
+
+    for (int i = x - 1; i <= x + 1; i++) {
+        for (int j = y - 1; j <= y + 1; j++) {
+            if (!(i == x && j == y)) {
+
+                allMoves.push_back({i, j});
+            }
+        }
+    }
+
+   /* for (auto i : allMoves)
+    {
+        std::cout << i.x << i.y << std::endl;
+    }*/
+
 
 
 }

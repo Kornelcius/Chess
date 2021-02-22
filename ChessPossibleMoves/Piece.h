@@ -10,7 +10,7 @@ struct Piece
 
 struct Position
 {
-	bool isValid = false;
 	int x;
 	int y;
+	bool isValid = false;
 };
