@@ -10,6 +10,16 @@ int main()
     initializeBoard(chessBoard);
     printBoard(chessBoard);
     readFile("Pieces.txt", chessBoard);
+    printBoard(chessBoard);
+    Position pos = chooseFigure(chessBoard);
+    std::cout << pos.x << " " << pos.y << std::endl;
+    std::cout << chessBoard[pos.x][pos.y].type << std::endl;
+    std::cout << chessBoard[pos.x][pos.y].colour << std::endl;
+
+    //getPossibleMoves(figure);
+        //getAllMoves(figure);
+        //removeImpossibleMoves(figure);
+    //printMoves();
 
     return 0;
 }

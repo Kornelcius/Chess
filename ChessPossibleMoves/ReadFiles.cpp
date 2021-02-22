@@ -37,6 +37,8 @@ void readFile(std::string filePath, Piece tablica[8][8])
 
       tablica[xCoordinate][yCoordinate].colour = pieceColour;
       tablica[xCoordinate][yCoordinate].type = pieceType;
+      tablica[xCoordinate][yCoordinate].pieceIsPresent = true;
+
       //get piece location in array coordinates - from [0][0] to [7][7]
     }
 
@@ -87,7 +89,7 @@ std::string getPieceType(char type)
 
 int getPieceXCoordinate(char x)
 {
-    int result;
+    int result = NULL;
     int positionX = x;
     switch (positionX)
     {
