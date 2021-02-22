@@ -86,3 +86,5 @@ void getAllMovesForKing(int x, int y)
 
 
 }
+
+//bool validPosition(int x, int y);
