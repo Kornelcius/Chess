@@ -4,5 +4,5 @@
 struct Piece
 {
 	std::string type;
-	std::string colour;
+	char colour;
 };

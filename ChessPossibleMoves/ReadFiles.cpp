@@ -29,14 +29,15 @@ void readFile(std::string filePath, Piece tablica[8][8])
       std::cout << "line: " << input << std::endl;
       //get piece color
       //get piece type
-      auto pieceColour = getPieceColour(input[0]);
-      getPieceType(input[1]);
-      getPieceXCoordinate(input[2]);
-      getPieceYCoordinate(input[3]);
-      //get piece location in array coordinates - from [0][0] to [7][7]
-      
-     // std::cout << "input[0]: " << input[0] << std::endl;
+      int xCoordinate = getPieceXCoordinate(input[2]);
+      int yCoordinate = getPieceYCoordinate(input[3]);
 
+      char pieceColour = getPieceColour(input[0]);
+      std::string pieceType = getPieceType(input[1]);
+
+      tablica[xCoordinate][yCoordinate].colour = pieceColour;
+      tablica[xCoordinate][yCoordinate].type = pieceType;
+      //get piece location in array coordinates - from [0][0] to [7][7]
     }
 
     std::cout << "Succesful read!" << std::endl;
@@ -53,34 +54,35 @@ char getPieceColour(char colour)
     return colour;
 }
 
-void getPieceType(char type)
+std::string getPieceType(char type)
 {
+  std::string result = "";
   int pieceType = type;
-  std::cout << "Piece type: ";
   switch (pieceType)
     {
     case 107: //k
-        std::cout << "King" << std::endl;
+        result = "King";
         break;
     case 113: //q
-        std::cout << "Queen" << std::endl;
+        result = "Queen";
         break;
     case 114: //r
-        std::cout << "Rook" << std::endl;
+        result = "Rook";
         break;
     case 98: //b
-        std::cout << "Bishop" << std::endl;
+        result = "Bishop";
         break;
     case 110: //n
-        std::cout << "Knight" << std::endl;
+        result = "Knight";
         break;
     case 112: //p
-        std::cout << "Pawn" << std::endl;
+        result = "Pawn";
         break;
     default:
         std::cout << "Wrong values - ignore" << std::endl;
         break;
     }
+  return result;
 }
 
 int getPieceXCoordinate(char x)

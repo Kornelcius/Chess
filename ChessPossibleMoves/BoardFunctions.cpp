@@ -5,7 +5,7 @@ void initializeBoard(Piece chessBoard[8][8])
 {
     for (auto i = 0; i < 8; i++) {
         for (auto j = 0; j < 8; j++) {
-            chessBoard[i][j].colour = "0";
+            chessBoard[i][j].colour = '0';
             chessBoard[i][j].type = "0";
         }
     }
