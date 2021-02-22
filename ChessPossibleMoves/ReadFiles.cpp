@@ -29,7 +29,7 @@ void readFile(std::string filePath, Piece tablica[8][8])
       std::cout << "line: " << input << std::endl;
       //get piece color
       //get piece type
-      getPieceColour(input[0]);
+      auto pieceColour = getPieceColour(input[0]);
       getPieceType(input[1]);
       getPiecePosition(input[2], input[3]);
       //get piece location in array coordinates - from [0][0] to [7][7]
@@ -43,16 +43,16 @@ void readFile(std::string filePath, Piece tablica[8][8])
     file.close();
 }
 
-void getPieceColour(char colour)
+char getPieceColour(char colour)
 {
     if (colour != 'b' && colour != 'w') 
     {
-      return;
+      return 0;
     }
     std::cout << "Piece colour: " << colour << std::endl;
-
-
+    return colour;
 }
+
 void getPieceType(char type)
 {
   int pieceType = type;
