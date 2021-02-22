@@ -26,8 +26,8 @@ void readFile(std::string fileName)
        }
        std::cout << "line: " << input << std::endl;
       //get piece color
-      std::cout << "Piece colour: " << input[0] << std::endl;
       //get piece type
+      switchDependingOnPieceColour(input[0]);
       switchDependingOnPieceType(input[1]);
       switchDependingOnPiecePosition(input[2], input[3]);
       //get piece location in array coordinates - from [0][0] to [7][7]
@@ -41,6 +41,16 @@ void readFile(std::string fileName)
     file.close();
 }
 
+void switchDependingOnPieceColour(char colour)
+{
+    if (colour != 'b' && colour != 'w') 
+    {
+      return;
+    }
+    std::cout << "Piece colour: " << colour << std::endl;
+
+
+}
 void switchDependingOnPieceType(int type)
 {
   std::cout << "Piece type: ";
@@ -69,7 +79,6 @@ void switchDependingOnPieceType(int type)
         break;
     }
 }
-
 
 void switchDependingOnPiecePosition(int a, int b)
 {
