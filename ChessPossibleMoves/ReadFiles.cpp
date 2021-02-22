@@ -31,7 +31,8 @@ void readFile(std::string filePath, Piece tablica[8][8])
       //get piece type
       auto pieceColour = getPieceColour(input[0]);
       getPieceType(input[1]);
-      getPiecePosition(input[2], input[3]);
+      getPieceXCoordinate(input[2]);
+      getPieceYCoordinate(input[3]);
       //get piece location in array coordinates - from [0][0] to [7][7]
       
      // std::cout << "input[0]: " << input[0] << std::endl;
@@ -49,7 +50,6 @@ char getPieceColour(char colour)
     {
       return 0;
     }
-    std::cout << "Piece colour: " << colour << std::endl;
     return colour;
 }
 
@@ -83,40 +83,77 @@ void getPieceType(char type)
     }
 }
 
-void getPiecePosition(char x, char y)
+int getPieceXCoordinate(char x)
 {
+    int result;
     int positionX = x;
-    int positionY = y;
-    std::cout << "Piece coordinates: ";
     switch (positionX)
     {
     case 65: //A
-        std::cout << "0" << positionY - 49 << std::endl; // - 49 means that from ascii positionY we subtract asci 1, getting proper coordinate
+        result = 0;
         break;
     case 66: //B
-        std::cout << "1" << positionY - 49 << std::endl;
+        result = 1;
         break;
     case 67: //C
-        std::cout << "2" << positionY - 49 << std::endl;
+        result = 2;
         break;
-    case 68:  //D
-        std::cout << "3" << positionY - 49 << std::endl;
+    case 68: //D
+        result = 3;
         break;
     case 69: //E
-        std::cout << "4" << positionY - 49 << std::endl;
+        result = 4;
         break;
     case 70: //F
-        std::cout << "5" << positionY - 49 << std::endl;
+        result = 5;
         break;
     case 71: //G
-        std::cout << "6" << positionY - 49 << std::endl;
+        result = 6;
         break;
     case 72: //H
-        std::cout << "7" << positionY - 49 << std::endl;
+        result = 7;
         break;
     default:
         std::cout << "Wrong values - ignore" << std::endl;
         break;
     }
-
+    return result;
 }
+
+int getPieceYCoordinate(char y)
+{
+    int result;
+    int positionY = y;
+    switch (positionY)
+    {
+    case 49: //1
+        result = 0;
+        break;
+    case 50: //2
+        result = 1;
+        break;
+    case 51: //3
+        result = 2;
+        break;
+    case 52: //4
+        result = 3;
+        break;
+    case 53: //5
+        result = 4;
+        break;
+    case 54: //6
+        result = 5;
+        break;
+    case 55: //7
+        result = 6;
+        break;
+    case 56: //8
+        result = 7;
+        break;
+    default:
+        std::cout << "Wrong values - ignore" << std::endl;
+        break;
+    }
+    return result;
+}
+

@@ -6,4 +6,5 @@
 void readFile(std::string fileName, Piece tablica[8][8]);
 char getPieceColour(char colour);
 void getPieceType(char type);
-void getPiecePosition(char x, char y);
+int getPieceXCoordinate(char x);
+int getPieceYCoordinate(char y);
