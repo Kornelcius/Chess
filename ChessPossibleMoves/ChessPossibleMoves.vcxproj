@@ -139,10 +139,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BoardFunctions.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="ReadFiles.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BoardFunctions.h" />
     <ClInclude Include="Piece.h" />
     <ClInclude Include="ReadFile.h" />
   </ItemGroup>
