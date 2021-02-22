@@ -28,7 +28,7 @@ void readFile(std::string fileName)
       //get piece color
       std::cout << "Piece colour: " << input[0] << std::endl;
       //get piece type
-      switchDependingOnPieceType(input[0]);
+      switchDependingOnPieceType(input[1]);
       switchDependingOnPiecePosition(input[2], input[3]);
       //get piece location in array coordinates - from [0][0] to [7][7]
       
