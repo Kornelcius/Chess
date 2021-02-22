@@ -4,7 +4,7 @@
 #include <iostream>
 
 
-void readFile(std::string filePath, Piece tablica[8][8]) 
+void readFile(std::string filePath) 
 {
     std::string input;
 	std::fstream file;
@@ -35,9 +35,9 @@ void readFile(std::string filePath, Piece tablica[8][8])
       char pieceColour = getPieceColour(input[0]);
       std::string pieceType = getPieceType(input[1]);
 
-      tablica[xCoordinate][yCoordinate].colour = pieceColour;
-      tablica[xCoordinate][yCoordinate].type = pieceType;
-      tablica[xCoordinate][yCoordinate].pieceIsPresent = true;
+      ChessBoard[xCoordinate][yCoordinate].colour = pieceColour;
+      ChessBoard[xCoordinate][yCoordinate].type = pieceType;
+      ChessBoard[xCoordinate][yCoordinate].pieceIsPresent = true;
 
       //get piece location in array coordinates - from [0][0] to [7][7]
     }
@@ -126,7 +126,7 @@ int getPieceXCoordinate(char x)
 
 int getPieceYCoordinate(char y)
 {
-    int result;
+    int result = NULL;
     int positionY = y;
     switch (positionY)
     {

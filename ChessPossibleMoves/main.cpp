@@ -4,17 +4,18 @@
 
 #include <iostream>
 
+Piece ChessBoard[8][8];
+
 int main()
 {
     bool koniec = false;
-    Piece chessBoard[8][8];
 
     while (!koniec) {
-        initializeBoard(chessBoard);
-        printBoard(chessBoard);
-        readFile("Pieces.txt", chessBoard);
-        printBoard(chessBoard);
-        Position pos = chooseFigure(chessBoard);
+        initializeBoard();
+        printBoard();
+        readFile("Pieces.txt");
+        printBoard();
+        Position pos = chooseFigure();
 
         if (!pos.isValid)
         {
@@ -22,9 +23,9 @@ int main()
         }
 
         std::cout << pos.x << " " << pos.y << std::endl;
-        std::cout << chessBoard[pos.x][pos.y].type << std::endl;
-        std::cout << chessBoard[pos.x][pos.y].colour << std::endl;
-        getAllMoves(pos.x, pos.y, chessBoard);
+        std::cout << ChessBoard[pos.x][pos.y].type << std::endl;
+        std::cout << ChessBoard[pos.x][pos.y].colour << std::endl;
+        getAllMoves(pos.x, pos.y);
 
         char end = NULL;
         std::cout << "Do you want to end? Press 1 to end;" << std::endl;

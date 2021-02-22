@@ -4,29 +4,29 @@
 #include <iostream>
 #include <vector>
 
-void initializeBoard(Piece chessBoard[8][8])
+void initializeBoard()
 {
     for (auto i = 0; i < 8; i++) {
         for (auto j = 0; j < 8; j++) {
-            chessBoard[i][j].colour = NULL;
-            chessBoard[i][j].type = "";
+            ChessBoard[i][j].colour = NULL;
+            ChessBoard[i][j].type = "";
         }
     }
 }
 
-void printBoard(Piece chessBoard[8][8])
+void printBoard()
 {
     for (size_t i = 0; i < 8; ++i)
     {
         for (size_t j = 0; j < 8; ++j)
         {
-            std::cout << " A[" << i << "][" << j << "] = " << chessBoard[i][j].colour << " " << chessBoard[i][j].type;
+            std::cout << " A[" << i << "][" << j << "] = " << ChessBoard[i][j].colour << " " << ChessBoard[i][j].type;
         }
         std::cout << std::endl;
     }
 }
 
-Position chooseFigure(Piece chessBoard[8][8])
+Position chooseFigure()
 {
     char coordinate;
     std::cout << "Type x coordinate (A - H): " << std::endl;
@@ -36,7 +36,7 @@ Position chooseFigure(Piece chessBoard[8][8])
     std::cin >> coordinate;
     int y = getPieceYCoordinate(coordinate);
 
-    if (!chessBoard[x][y].pieceIsPresent){
+    if (!ChessBoard[x][y].pieceIsPresent){
         std::cout << "Coordinate invalid" << std::endl;
         return {};
     }
@@ -49,9 +49,9 @@ Position chooseFigure(Piece chessBoard[8][8])
     return result;
 }
 
-void getAllMoves(int x, int y, Piece chessBoard[8][8])
+void getAllMoves(int x, int y)
 {
-    std::string pieceType = chessBoard[x][y].type;
+    std::string pieceType = ChessBoard[x][y].type;
     getAllMovesForType(x, y, pieceType);
 }
 
