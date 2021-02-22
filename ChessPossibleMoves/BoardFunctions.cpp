@@ -69,17 +69,19 @@ void getAllMovesForKing(int x, int y)
 
     for (int i = x - 1; i <= x + 1; i++) {
         for (int j = y - 1; j <= y + 1; j++) {
-            if (!(i == x && j == y)) {
-
+            bool validBorders = (i >= 0 && i <= 7) && (j >= 0 && j <= 7);
+            bool samePosition = (i == x && j == y);
+            bool getPos = validBorders && !samePosition;
+            if (getPos) {
                 allMoves.push_back({i, j});
             }
         }
     }
 
-   /* for (auto i : allMoves)
+   for (auto i : allMoves)
     {
         std::cout << i.x << i.y << std::endl;
-    }*/
+    }
 
 
 
