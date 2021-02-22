@@ -28,31 +28,7 @@ void readFile(std::string fileName)
       //get piece color
       std::cout << "Piece colour: " << input[0] << std::endl;
       //get piece type
-      std::cout << "Piece type: ";
-      switch(int(input[1]))
-      {
-      case 107:
-          std::cout << "King" << std::endl;
-          break;
-      case 113:
-          std::cout << "Queen" << std::endl;
-          break;
-      case 114:
-          std::cout << "Rook" << std::endl;
-          break;
-      case 98:
-          std::cout << "Bishop" << std::endl;
-          break;
-      case 110:
-          std::cout << "Knight" << std::endl;
-          break;
-      case 112:
-          std::cout << "Pawn" << std::endl;
-          break;
-      default:
-          std::cout << "Wrong values - ignore" << std::endl;
-          break;
-      }
+      switchDependingOnPieceType(input[0]);
 
       //get piece location in array coordinates - from [0][0] to [7][7]
       std::cout << "Piece coordinates: ";
@@ -93,5 +69,34 @@ void readFile(std::string fileName)
     std::cout << "Succesful read!" << std::endl;
 
     file.close();
+}
+
+void switchDependingOnPieceType(int type)
+{
+  std::cout << "Piece type: ";
+  switch (type)
+    {
+    case 107:
+        std::cout << "King" << std::endl;
+        break;
+    case 113:
+        std::cout << "Queen" << std::endl;
+        break;
+    case 114:
+        std::cout << "Rook" << std::endl;
+        break;
+    case 98:
+        std::cout << "Bishop" << std::endl;
+        break;
+    case 110:
+        std::cout << "Knight" << std::endl;
+        break;
+    case 112:
+        std::cout << "Pawn" << std::endl;
+        break;
+    default:
+        std::cout << "Wrong values - ignore" << std::endl;
+        break;
+    }
 }
 
