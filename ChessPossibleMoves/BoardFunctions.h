@@ -14,3 +14,4 @@ std::vector<Position> getMovesForRook(int x, int y);
 std::vector<Position> getMovesForBishop(int x, int y);
 std::vector<Position> getMovesForKnight(int x, int y);
 std::vector<Position> getMovesForPawn(int x, int y);
+void printPositionInChessBoardCoordinates(Position pos);

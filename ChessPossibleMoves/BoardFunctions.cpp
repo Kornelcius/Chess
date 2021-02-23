@@ -224,3 +224,41 @@ std::vector<Position> getMovesForPawn(int x, int y)
     
     return allMoves;
 }
+
+void printPositionInChessBoardCoordinates(Position pos)
+{
+    char x;
+    int y = pos.y;
+
+    switch (pos.x)
+    {
+    case 0:
+        x = 'A';
+        break;
+    case 1:
+        x = 'B';
+        break;
+    case 2:
+        x = 'C';
+        break;
+    case 3:
+        x = 'D';
+        break;
+    case 4:
+        x = 'E';
+        break;
+    case 5:
+        x = 'F';
+        break;
+    case 6:
+        x = 'G';
+        break;
+    case 7:
+        x = 'H';
+        break;
+    default:
+        x = NULL;
+        break;
+    }
+    std::cout << x << y + 1 << std::endl;
+}

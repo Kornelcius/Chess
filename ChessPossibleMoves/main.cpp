@@ -32,7 +32,7 @@ int main()
           std::cout << "Available moves: " << std::endl;
           for (auto i : allMoves)
           {
-              std::cout << i.x << i.y << std::endl;
+              printPositionInChessBoardCoordinates(i);
           }
         }
         char end = NULL;
