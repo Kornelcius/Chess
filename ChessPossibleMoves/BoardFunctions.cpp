@@ -2,7 +2,6 @@
 #include "ReadFile.h"
 #include "BoardFunctions.h"
 #include <iostream>
-#include <vector>
 
 void initializeBoard()
 {
@@ -49,17 +48,19 @@ Position chooseFigure()
     return result;
 }
 
-void getAllMoves(int x, int y)
+std::vector<Position> getAllMoves(int x, int y)
 {
     std::string pieceType = ChessBoard[x][y].type;
     getAllMovesForType(x, y, pieceType);
 }
 
-void getAllMovesForType(int x, int y, std::string type)
+std::vector<Position> getAllMovesForType(int x, int y, std::string type)
 {
+    std::vector<Position> result;
+
     if (type == "King")
     {
-        getAllMovesForKing(x, y);
+       result = getAllMovesForKing(x, y);
     }
     else if (type == "Queen")
     {
@@ -81,9 +82,11 @@ void getAllMovesForType(int x, int y, std::string type)
     {
         getAllMovesForPawn(x, y);
     }
+
+    return result;
 }
 
-void getAllMovesForKing(int x, int y)
+std::vector<Position> getAllMovesForKing(int x, int y)
 {
     std::vector<Position> allMoves;
 
@@ -98,10 +101,7 @@ void getAllMovesForKing(int x, int y)
         }
     }
 
-   for (auto i : allMoves)
-    {
-        std::cout << i.x << i.y << std::endl;
-    }
+   return allMoves;
 }
 
 void getAllMovesForQueen(int x, int y)
@@ -117,11 +117,6 @@ void getAllMovesForQueen(int x, int y)
                 allMoves.push_back({ i, j });
             }
         }
-    }
-
-    for (auto i : allMoves)
-    {
-        std::cout << i.x << i.y << std::endl;
     }
 }
 
@@ -139,11 +134,6 @@ void getAllMovesForRook(int x, int y)
             }
         }
     }
-
-    for (auto i : allMoves)
-    {
-        std::cout << i.x << i.y << std::endl;
-    }
 }
 
 void getAllMovesForBishop(int x, int y)
@@ -159,11 +149,6 @@ void getAllMovesForBishop(int x, int y)
                 allMoves.push_back({ i, j });
             }
         }
-    }
-
-    for (auto i : allMoves)
-    {
-        std::cout << i.x << i.y << std::endl;
     }
 }
 
@@ -181,11 +166,6 @@ void getAllMovesForKnight(int x, int y)
             }
         }
     }
-
-    for (auto i : allMoves)
-    {
-        std::cout << i.x << i.y << std::endl;
-    }
 }
 
 void getAllMovesForPawn(int x, int y)
@@ -202,11 +182,4 @@ void getAllMovesForPawn(int x, int y)
             }
         }
     }
-
-    for (auto i : allMoves)
-    {
-        std::cout << i.x << i.y << std::endl;
-    }
 }
-
-//bool validPosition(int x, int y);
