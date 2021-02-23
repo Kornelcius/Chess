@@ -51,7 +51,8 @@ Position chooseFigure()
 std::vector<Position> getAllMoves(int x, int y)
 {
     std::string pieceType = ChessBoard[x][y].type;
-    getAllMovesForType(x, y, pieceType);
+    std::vector<Position> allMoves = getAllMovesForType(x, y, pieceType);
+    return allMoves;
 }
 
 std::vector<Position> getAllMovesForType(int x, int y, std::string type)
