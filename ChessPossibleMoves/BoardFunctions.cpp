@@ -186,13 +186,31 @@ std::vector<Position> getMovesForPawn(int x, int y)
 
     if (colour == 'w') 
     {
+        //check forward
         xPos = x;
         yPos = y + 1;
-        bool validBorders = ( yPos <= 7);
-        bool forwardBlocked = ChessBoard[xPos][yPos].pieceIsPresent;
-        if (validBorders && !forwardBlocked) { 
-            allMoves.push_back({ xPos, yPos }); 
+        bool validBorders = ( yPos <= 7 && yPos >= 0);
+        if (validBorders) {
+            bool forwardBlocked = ChessBoard[xPos][yPos].pieceIsPresent;
+            if (!forwardBlocked) {
+                allMoves.push_back({ xPos, yPos });
+            }
+            //capture check
+            xPos = x + 1;
+            bool canCapture = (ChessBoard[xPos][yPos].pieceIsPresent && ChessBoard[xPos][yPos].colour == 'b');
+            if (canCapture)
+            {
+                allMoves.push_back({ xPos, yPos });
+            }
+            xPos = x - 1;
+            bool canCapture2 = (ChessBoard[xPos][yPos].pieceIsPresent && ChessBoard[xPos][yPos].colour == 'b');
+            if (canCapture2)
+            {
+                allMoves.push_back({ xPos, yPos });
+            }
         }
+       
+
     }
     else if (colour == 'b') {
         xPos = x;
