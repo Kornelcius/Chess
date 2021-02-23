@@ -129,10 +129,6 @@ std::vector<Position> getMovesForRook(int x, int y)
     std::vector<Position> allMoves;
     char colour = ChessBoard[x][y].colour;
     bool canMove = true;
-    int upperLimitX = 7;
-    int lowerLimitX = 0;
-    int upperLimitY = 7;
-    int lowerLimitY = 0;
     int i, j;
     i = x + 1;
     j = y;
