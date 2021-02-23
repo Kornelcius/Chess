@@ -228,7 +228,7 @@ std::vector<Position> getMovesForQueen(int x, int y)
     while (canMove)
     {
         bool validBorders = (i >= 0 && i <= 7 && j >= 0 && j <= 7);
-        if (i == 7 && j == 7) {
+        if (i == 7 || j == 7) {
             canMove = false;
         }
         if (!ChessBoard[i][j].pieceIsPresent && validBorders)
@@ -258,7 +258,7 @@ std::vector<Position> getMovesForQueen(int x, int y)
     while (canMove)
     {
         bool validBorders = (i >= 0 && i <= 7 && j >= 0 && j <= 7);
-        if (i == 0 && j == 7) {
+        if (i == 0 || j == 7) {
             canMove = false;
         }
         if (!ChessBoard[i][j].pieceIsPresent && validBorders)
@@ -289,7 +289,7 @@ std::vector<Position> getMovesForQueen(int x, int y)
     while (canMove)
     {
         bool validBorders = (i >= 0 && i <= 7 && j >= 0 && j <= 7);
-        if (j == 0 && i == 7) {
+        if (j == 0 || i == 7) {
             canMove = false;
         }
         if (!ChessBoard[i][j].pieceIsPresent && validBorders)
@@ -319,7 +319,7 @@ std::vector<Position> getMovesForQueen(int x, int y)
     while (canMove)
     {
         bool validBorders = (i >= 0 && i <= 7 && j >= 0 && j <= 7);
-        if (j == 0 && i == 0) {
+        if (j == 0 || i == 0) {
             canMove = false;
         }
         if (!ChessBoard[i][j].pieceIsPresent && validBorders)
@@ -476,7 +476,7 @@ std::vector<Position> getMovesForBishop(int x, int y)
     while (canMove)
     {
         bool validBorders = (i >= 0 && i <= 7 && j >= 0 && j <= 7);
-        if (i == 7 && j == 7) {
+        if (i == 7 || j == 7) {
             canMove = false;
         }
         if (!ChessBoard[i][j].pieceIsPresent && validBorders)
@@ -506,7 +506,7 @@ std::vector<Position> getMovesForBishop(int x, int y)
     while (canMove)
     {
         bool validBorders = (i >= 0 && i <= 7 && j >= 0 && j <= 7);
-        if (i == 0 && j == 7) {
+        if (i == 0 || j == 7) {
             canMove = false;
         }
         if (!ChessBoard[i][j].pieceIsPresent && validBorders)
@@ -537,7 +537,7 @@ std::vector<Position> getMovesForBishop(int x, int y)
     while (canMove)
     {
         bool validBorders = (i >= 0 && i <= 7 && j >= 0 && j <= 7);
-        if (j == 0 && i == 7) {
+        if (j == 0 || i == 7) {
             canMove = false;
         }
         if (!ChessBoard[i][j].pieceIsPresent && validBorders)
@@ -567,7 +567,7 @@ std::vector<Position> getMovesForBishop(int x, int y)
     while (canMove)
     {
         bool validBorders = (i >= 0 && i <= 7 && j >= 0 && j <= 7);
-        if (j == 0 && i == 0) {
+        if (j == 0 || i == 0) {
             canMove = false;
         }
         if (!ChessBoard[i][j].pieceIsPresent && validBorders)
