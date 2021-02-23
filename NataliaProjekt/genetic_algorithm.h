@@ -24,3 +24,5 @@ vector<string> read_city_names(const string& FileName);
 vector<vector<int>> initPath(int route, int city_number);
 
 double fitness(vector<int> route, matrix distance);
+vector<unsigned> tournament_selection(vector<vector<int>> population, int k);
+

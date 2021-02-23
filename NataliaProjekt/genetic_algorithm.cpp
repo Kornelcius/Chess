@@ -1,4 +1,6 @@
 #include "genetic_algorithm.h"
+#include <ctime>
+#include "windows.h"
 
 matrix read_matrix_from_file(const string& filename) {
 
@@ -86,13 +88,41 @@ double fitness(vector<int> route, matrix distance) {
 
 	int length_of_the_route = 0;
 	for (int i = 1; i < s; i++) {
+		if (distance[i - 1][i] != -1) { distance[i - 1][i] == 1000000; }
 		length_of_the_route += distance[route[i - 1]][route[i]];
 	}
+	if (distance[route[s - 1]][route[0]] != -1) { distance[route[s - 1]][route[0]] == 1000000; }
 	length_of_the_route += distance[route[s - 1]][route[0]];
 
 	return length_of_the_route;
 }
 
-void tournament_selection() {
+vector<unsigned> tournament_selection(vector<vector<int>> population, int k) {
+	const unsigned range = population.at(0).size();
+	const unsigned numberToSelect = k;
+	std::vector< unsigned > chosenNumbers(numberToSelect);
 
+	if (numberToSelect > range)
+	{
+		return chosenNumbers;
+	}
+	std::vector< unsigned > remainingNumbers(range);
+
+	/* Initialise the list of possible choices */
+	for (unsigned i = 0; i < range; i++)   remainingNumbers[i] = i;
+
+	/* Now chose however many you want, without repeats */
+	for (unsigned i = 0; i < numberToSelect; i++) {
+		/* Generate a random number to select */
+
+		Sleep(10);
+		int selectedElement = rand() % (range - i);
+		Sleep(10);
+		/* Put it in the chosenNumbers vector */
+		chosenNumbers[i] = remainingNumbers[selectedElement];
+
+		/* Now erase this number from the possible numbers, so that it can't be chosen again */
+		remainingNumbers.erase(remainingNumbers.begin() + selectedElement);
+	}
+	return chosenNumbers;
 }
