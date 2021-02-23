@@ -61,6 +61,27 @@ void getAllMovesForType(int x, int y, std::string type)
     {
         getAllMovesForKing(x, y);
     }
+    else if (type == "Queen")
+    {
+        getAllMovesForQueen(x, y);
+    }
+    else if (type == "Rook")
+    {
+        getAllMovesForRook(x, y);
+    }
+    else if (type == "Bishop")
+    {
+        getAllMovesForBishop(x, y);
+    }
+    else if (type == "Knight")
+    {
+        getAllMovesForKnight(x, y);
+    }
+    else if (type == "Pawn")
+    {
+        getAllMovesForPawn(x, y);
+    }
+
 }
 
 void getAllMovesForKing(int x, int y)
@@ -79,6 +100,126 @@ void getAllMovesForKing(int x, int y)
     }
 
    for (auto i : allMoves)
+    {
+        std::cout << i.x << i.y << std::endl;
+    }
+
+
+
+}
+
+void getAllMovesForQueen(int x, int y)
+{
+    std::vector<Position> allMoves;
+
+    for (int i = x - 1; i <= x + 1; i++) {
+        for (int j = y - 1; j <= y + 1; j++) {
+            bool validBorders = (i >= 0 && i <= 7) && (j >= 0 && j <= 7);
+            bool samePosition = (i == x && j == y);
+            bool getPos = validBorders && !samePosition;
+            if (getPos) {
+                allMoves.push_back({ i, j });
+            }
+        }
+    }
+
+    for (auto i : allMoves)
+    {
+        std::cout << i.x << i.y << std::endl;
+    }
+
+
+
+}
+
+void getAllMovesForRook(int x, int y)
+{
+    std::vector<Position> allMoves;
+
+    for (int i = x - 1; i <= x + 1; i++) {
+        for (int j = y - 1; j <= y + 1; j++) {
+            bool validBorders = (i >= 0 && i <= 7) && (j >= 0 && j <= 7);
+            bool samePosition = (i == x && j == y);
+            bool getPos = validBorders && !samePosition;
+            if (getPos) {
+                allMoves.push_back({ i, j });
+            }
+        }
+    }
+
+    for (auto i : allMoves)
+    {
+        std::cout << i.x << i.y << std::endl;
+    }
+
+
+
+}
+
+void getAllMovesForBishop(int x, int y)
+{
+    std::vector<Position> allMoves;
+
+    for (int i = x - 1; i <= x + 1; i++) {
+        for (int j = y - 1; j <= y + 1; j++) {
+            bool validBorders = (i >= 0 && i <= 7) && (j >= 0 && j <= 7);
+            bool samePosition = (i == x && j == y);
+            bool getPos = validBorders && !samePosition;
+            if (getPos) {
+                allMoves.push_back({ i, j });
+            }
+        }
+    }
+
+    for (auto i : allMoves)
+    {
+        std::cout << i.x << i.y << std::endl;
+    }
+
+
+
+}
+
+void getAllMovesForKnight(int x, int y)
+{
+    std::vector<Position> allMoves;
+
+    for (int i = x - 1; i <= x + 1; i++) {
+        for (int j = y - 1; j <= y + 1; j++) {
+            bool validBorders = (i >= 0 && i <= 7) && (j >= 0 && j <= 7);
+            bool samePosition = (i == x && j == y);
+            bool getPos = validBorders && !samePosition;
+            if (getPos) {
+                allMoves.push_back({ i, j });
+            }
+        }
+    }
+
+    for (auto i : allMoves)
+    {
+        std::cout << i.x << i.y << std::endl;
+    }
+
+
+
+}
+
+void getAllMovesForPawn(int x, int y)
+{
+    std::vector<Position> allMoves;
+
+    for (int i = x - 1; i <= x + 1; i++) {
+        for (int j = y - 1; j <= y + 1; j++) {
+            bool validBorders = (i >= 0 && i <= 7) && (j >= 0 && j <= 7);
+            bool samePosition = (i == x && j == y);
+            bool getPos = validBorders && !samePosition;
+            if (getPos) {
+                allMoves.push_back({ i, j });
+            }
+        }
+    }
+
+    for (auto i : allMoves)
     {
         std::cout << i.x << i.y << std::endl;
     }
