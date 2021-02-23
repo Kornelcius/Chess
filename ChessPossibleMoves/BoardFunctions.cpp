@@ -90,12 +90,13 @@ std::vector<Position> getMovesForType(int x, int y, std::string type)
 std::vector<Position> getMovesForKing(int x, int y)
 {
     std::vector<Position> allMoves;
-
+    char kingColour = ChessBoard[x][y].colour;
     for (int i = x - 1; i <= x + 1; i++) {
         for (int j = y - 1; j <= y + 1; j++) {
             bool validBorders = (i >= 0 && i <= 7) && (j >= 0 && j <= 7);
             bool samePosition = (i == x && j == y);
-            bool getPos = validBorders && !samePosition;
+            bool canCapture = (ChessBoard[i][j].colour != kingColour || !ChessBoard[i][j].pieceIsPresent);
+            bool getPos = validBorders && !samePosition && canCapture;
             if (getPos) {
                 allMoves.push_back({i, j});
             }
