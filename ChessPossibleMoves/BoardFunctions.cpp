@@ -179,18 +179,30 @@ std::vector<Position> getMovesForKnight(int x, int y)
 
 std::vector<Position> getMovesForPawn(int x, int y)
 {
-    std::vector<Position> allMoves;
+    std::vector<Position> allMoves{};
+    char colour = ChessBoard[x][y].colour;
+    int xPos;
+    int yPos;
 
-    for (int i = x - 1; i <= x + 1; i++) {
-        for (int j = y - 1; j <= y + 1; j++) {
-            bool validBorders = (i >= 0 && i <= 7) && (j >= 0 && j <= 7);
-            bool samePosition = (i == x && j == y);
-            bool getPos = validBorders && !samePosition;
-            if (getPos) {
-                allMoves.push_back({ i, j });
-            }
+    if (colour == 'w') 
+    {
+        xPos = x;
+        yPos = y + 1;
+        bool validBorders = ( yPos <= 7);
+        bool forwardBlocked = ChessBoard[xPos][yPos].pieceIsPresent;
+        if (validBorders && !forwardBlocked) { 
+            allMoves.push_back({ xPos, yPos }); 
         }
     }
-
+    else if (colour == 'b') {
+        xPos = x;
+        yPos = y - 1;
+        bool validBorders = (yPos >= 0);
+        bool forwardBlocked = ChessBoard[xPos][yPos].pieceIsPresent;
+        if (validBorders && !forwardBlocked) {
+            allMoves.push_back({ xPos, yPos });
+        }
+    }
+    
     return allMoves;
 }
