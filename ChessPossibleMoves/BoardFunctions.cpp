@@ -81,7 +81,6 @@ void getAllMovesForType(int x, int y, std::string type)
     {
         getAllMovesForPawn(x, y);
     }
-
 }
 
 void getAllMovesForKing(int x, int y)
@@ -103,9 +102,6 @@ void getAllMovesForKing(int x, int y)
     {
         std::cout << i.x << i.y << std::endl;
     }
-
-
-
 }
 
 void getAllMovesForQueen(int x, int y)
@@ -127,9 +123,6 @@ void getAllMovesForQueen(int x, int y)
     {
         std::cout << i.x << i.y << std::endl;
     }
-
-
-
 }
 
 void getAllMovesForRook(int x, int y)
@@ -151,9 +144,6 @@ void getAllMovesForRook(int x, int y)
     {
         std::cout << i.x << i.y << std::endl;
     }
-
-
-
 }
 
 void getAllMovesForBishop(int x, int y)
@@ -175,9 +165,6 @@ void getAllMovesForBishop(int x, int y)
     {
         std::cout << i.x << i.y << std::endl;
     }
-
-
-
 }
 
 void getAllMovesForKnight(int x, int y)
@@ -199,9 +186,6 @@ void getAllMovesForKnight(int x, int y)
     {
         std::cout << i.x << i.y << std::endl;
     }
-
-
-
 }
 
 void getAllMovesForPawn(int x, int y)
@@ -223,9 +207,6 @@ void getAllMovesForPawn(int x, int y)
     {
         std::cout << i.x << i.y << std::endl;
     }
-
-
-
 }
 
 //bool validPosition(int x, int y);
