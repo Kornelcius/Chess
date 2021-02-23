@@ -163,17 +163,36 @@ std::vector<Position> getMovesForBishop(int x, int y)
 std::vector<Position> getMovesForKnight(int x, int y)
 {
     std::vector<Position> allMoves;
+    char colour = ChessBoard[x][y].colour;
+    int xPos;
+    int yPos;
+    bool canCapture;
+    bool canMoveTo;
 
-    for (int i = x - 1; i <= x + 1; i++) {
-        for (int j = y - 1; j <= y + 1; j++) {
-            bool validBorders = (i >= 0 && i <= 7) && (j >= 0 && j <= 7);
-            bool samePosition = (i == x && j == y);
-            bool getPos = validBorders && !samePosition;
-            if (getPos) {
-                allMoves.push_back({ i, j });
-            }
+    // y + 2, x + 1
+
+    xPos = x + 1;
+    yPos = y + 2;
+    bool validBorders = (xPos >= 0 && xPos <= 7 && yPos >= 0 && yPos <= 7);
+    if (validBorders) {
+        canCapture = ChessBoard[xPos][yPos].colour != colour;
+        canMoveTo = (!ChessBoard[xPos][yPos].pieceIsPresent || canCapture);
+        if (canMoveTo) {
+            allMoves.push_back({xPos, yPos});
         }
     }
+
+
+    // y + 1, x + 2
+    // y - 1, x + 2
+    // y - 2, x + 1
+    // y - 2, x - 1
+    // y - 1, x - 2
+    // y + 1, x - 2
+    // y + 2, x - 1
+
+
+
 
     return allMoves;
 }
