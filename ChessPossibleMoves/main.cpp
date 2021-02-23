@@ -25,7 +25,7 @@ int main()
         std::cout << pos.x << " " << pos.y << std::endl;
         std::cout << ChessBoard[pos.x][pos.y].type << std::endl;
         std::cout << ChessBoard[pos.x][pos.y].colour << std::endl;
-        std::vector<Position> allMoves = getAllMoves(pos.x, pos.y);
+        std::vector<Position> allMoves = getMoves(pos.x, pos.y);
 
         for (auto i : allMoves)
         {

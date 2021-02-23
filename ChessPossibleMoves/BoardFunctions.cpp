@@ -48,46 +48,46 @@ Position chooseFigure()
     return result;
 }
 
-std::vector<Position> getAllMoves(int x, int y)
+std::vector<Position> getMoves(int x, int y)
 {
     std::string pieceType = ChessBoard[x][y].type;
-    std::vector<Position> allMoves = getAllMovesForType(x, y, pieceType);
+    std::vector<Position> allMoves = getMovesForType(x, y, pieceType);
     return allMoves;
 }
 
-std::vector<Position> getAllMovesForType(int x, int y, std::string type)
+std::vector<Position> getMovesForType(int x, int y, std::string type)
 {
     std::vector<Position> result;
 
     if (type == "King")
     {
-       result = getAllMovesForKing(x, y);
+       result = getMovesForKing(x, y);
     }
     else if (type == "Queen")
     {
-       result = getAllMovesForQueen(x, y);
+       result = getMovesForQueen(x, y);
     }
     else if (type == "Rook")
     {
-       result = getAllMovesForRook(x, y);
+       result = getMovesForRook(x, y);
     }
     else if (type == "Bishop")
     {
-       result = getAllMovesForBishop(x, y);
+       result = getMovesForBishop(x, y);
     }
     else if (type == "Knight")
     {
-       result = getAllMovesForKnight(x, y);
+       result = getMovesForKnight(x, y);
     }
     else if (type == "Pawn")
     {
-       result = getAllMovesForPawn(x, y);
+       result = getMovesForPawn(x, y);
     }
 
     return result;
 }
 
-std::vector<Position> getAllMovesForKing(int x, int y)
+std::vector<Position> getMovesForKing(int x, int y)
 {
     std::vector<Position> allMoves;
 
@@ -105,7 +105,7 @@ std::vector<Position> getAllMovesForKing(int x, int y)
    return allMoves;
 }
 
-std::vector<Position> getAllMovesForQueen(int x, int y)
+std::vector<Position> getMovesForQueen(int x, int y)
 {
     std::vector<Position> allMoves;
 
@@ -123,7 +123,7 @@ std::vector<Position> getAllMovesForQueen(int x, int y)
     return allMoves;
 }
 
-std::vector<Position> getAllMovesForRook(int x, int y)
+std::vector<Position> getMovesForRook(int x, int y)
 {
     std::vector<Position> allMoves;
 
@@ -141,7 +141,7 @@ std::vector<Position> getAllMovesForRook(int x, int y)
     return allMoves;
 }
 
-std::vector<Position> getAllMovesForBishop(int x, int y)
+std::vector<Position> getMovesForBishop(int x, int y)
 {
     std::vector<Position> allMoves;
 
@@ -159,7 +159,7 @@ std::vector<Position> getAllMovesForBishop(int x, int y)
     return allMoves;
 }
 
-std::vector<Position> getAllMovesForKnight(int x, int y)
+std::vector<Position> getMovesForKnight(int x, int y)
 {
     std::vector<Position> allMoves;
 
@@ -177,7 +177,7 @@ std::vector<Position> getAllMovesForKnight(int x, int y)
     return allMoves;
 }
 
-std::vector<Position> getAllMovesForPawn(int x, int y)
+std::vector<Position> getMovesForPawn(int x, int y)
 {
     std::vector<Position> allMoves;
 
