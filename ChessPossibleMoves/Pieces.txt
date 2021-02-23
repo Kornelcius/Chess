@@ -1,6 +1,4 @@
-brE4
-brG4
-wnC4
-wpE1
-wbE2
-bpE6
+bqE4
+wrF3
+brF5
+bpD5

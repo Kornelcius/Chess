@@ -109,18 +109,238 @@ std::vector<Position> getMovesForKing(int x, int y)
 std::vector<Position> getMovesForQueen(int x, int y)
 {
     std::vector<Position> allMoves;
+    char colour = ChessBoard[x][y].colour;
+    bool canMove = true;
+    int i, j;
+    i = x + 1;
+    j = y;
 
-    for (int i = x - 1; i <= x + 1; i++) {
-        for (int j = y - 1; j <= y + 1; j++) {
-            bool validBorders = (i >= 0 && i <= 7) && (j >= 0 && j <= 7);
-            bool samePosition = (i == x && j == y);
-            bool getPos = validBorders && !samePosition;
-            if (getPos) {
-                allMoves.push_back({ i, j });
+    while (canMove)
+    {
+        bool validBorders = (i >= 0 && i <= 7 && j >= 0 && j <= 7);
+        if (i == 7) {
+            canMove = false;
+        }
+        if (!ChessBoard[i][y].pieceIsPresent && validBorders)
+        {
+            allMoves.push_back({ i, y });
+        }
+        else if (ChessBoard[i][y].pieceIsPresent)
+        {
+            if (ChessBoard[i][y].colour != colour)
+            {
+                allMoves.push_back({ i, y });
+                canMove = false;
+            }
+            else if (ChessBoard[i][y].colour == colour)
+            {
+                canMove = false;
             }
         }
+        i++;
     }
 
+    canMove = true;
+    i = x - 1;
+    while (canMove)
+    {
+        bool validBorders = (i >= 0 && i <= 7 && j >= 0 && j <= 7);
+        if (i == 0) {
+            canMove = false;
+        }
+        if (!ChessBoard[i][y].pieceIsPresent && validBorders)
+        {
+            allMoves.push_back({ i, y });
+        }
+        else if (ChessBoard[i][y].pieceIsPresent)
+        {
+            if (ChessBoard[i][y].colour != colour)
+            {
+                allMoves.push_back({ i, y });
+                canMove = false;
+            }
+            else if (ChessBoard[i][y].colour == colour)
+            {
+                canMove = false;
+            }
+        }
+        i--;
+    }
+
+    canMove = true;
+    i = x;
+    j = y + 1;
+
+    while (canMove)
+    {
+        bool validBorders = (i >= 0 && i <= 7 && j >= 0 && j <= 7);
+        if (j == 7) {
+            canMove = false;
+        }
+        if (!ChessBoard[x][j].pieceIsPresent && validBorders)
+        {
+            allMoves.push_back({ x, j });
+        }
+        else if (ChessBoard[x][j].pieceIsPresent)
+        {
+            if (ChessBoard[x][j].colour != colour)
+            {
+                allMoves.push_back({ x, j });
+                canMove = false;
+            }
+            else if (ChessBoard[x][j].colour == colour)
+            {
+                canMove = false;
+            }
+        }
+        j++;
+    }
+
+    canMove = true;
+    j = y - 1;
+    while (canMove)
+    {
+        bool validBorders = (i >= 0 && i <= 7 && j >= 0 && j <= 7);
+        if (j == 0) {
+            canMove = false;
+        }
+        if (!ChessBoard[x][j].pieceIsPresent && validBorders)
+        {
+            allMoves.push_back({ x, j });
+        }
+        else if (ChessBoard[x][j].pieceIsPresent)
+        {
+            if (ChessBoard[x][j].colour != colour)
+            {
+                allMoves.push_back({ x, j });
+                canMove = false;
+            }
+            else if (ChessBoard[x][j].colour == colour)
+            {
+                canMove = false;
+            }
+        }
+        j--;
+    }
+    i = x + 1;
+    j = y + 1;
+    //x + 1, y + 1
+    while (canMove)
+    {
+        bool validBorders = (i >= 0 && i <= 7 && j >= 0 && j <= 7);
+        if (i == 7 && j == 7) {
+            canMove = false;
+        }
+        if (!ChessBoard[i][j].pieceIsPresent && validBorders)
+        {
+            allMoves.push_back({ i, j });
+        }
+        else if (ChessBoard[i][j].pieceIsPresent)
+        {
+            if (ChessBoard[i][j].colour != colour)
+            {
+                allMoves.push_back({ i, j });
+                canMove = false;
+            }
+            else if (ChessBoard[i][j].colour == colour)
+            {
+                canMove = false;
+            }
+        }
+        i++;
+        j++;
+    }
+
+    canMove = true;
+    //x - 1, y + 1
+    i = x - 1;
+    j = y + 1;
+    while (canMove)
+    {
+        bool validBorders = (i >= 0 && i <= 7 && j >= 0 && j <= 7);
+        if (i == 0 && j == 7) {
+            canMove = false;
+        }
+        if (!ChessBoard[i][j].pieceIsPresent && validBorders)
+        {
+            allMoves.push_back({ i, j });
+        }
+        else if (ChessBoard[i][j].pieceIsPresent)
+        {
+            if (ChessBoard[i][j].colour != colour)
+            {
+                allMoves.push_back({ i, j });
+                canMove = false;
+            }
+            else if (ChessBoard[i][j].colour == colour)
+            {
+                canMove = false;
+            }
+        }
+        i--;
+        j++;
+    }
+
+    canMove = true;
+    //y - 1, x + 1
+    i = x + 1;
+    j = y - 1;
+
+    while (canMove)
+    {
+        bool validBorders = (i >= 0 && i <= 7 && j >= 0 && j <= 7);
+        if (j == 0 && i == 7) {
+            canMove = false;
+        }
+        if (!ChessBoard[i][j].pieceIsPresent && validBorders)
+        {
+            allMoves.push_back({ i, j });
+        }
+        else if (ChessBoard[i][j].pieceIsPresent)
+        {
+            if (ChessBoard[i][j].colour != colour)
+            {
+                allMoves.push_back({ i, j });
+                canMove = false;
+            }
+            else if (ChessBoard[i][j].colour == colour)
+            {
+                canMove = false;
+            }
+        }
+        i++;
+        j--;
+    }
+
+    canMove = true;
+    //y - 1, x - 1
+    i = x - 1;
+    j = y - 1;
+    while (canMove)
+    {
+        bool validBorders = (i >= 0 && i <= 7 && j >= 0 && j <= 7);
+        if (j == 0 && i == 0) {
+            canMove = false;
+        }
+        if (!ChessBoard[i][j].pieceIsPresent && validBorders)
+        {
+            allMoves.push_back({ i, j });
+        }
+        else if (ChessBoard[i][j].pieceIsPresent)
+        {
+            if (ChessBoard[i][j].colour != colour)
+            {
+                allMoves.push_back({ i, j });
+                canMove = false;
+            }
+            else if (ChessBoard[i][j].colour == colour)
+            {
+                canMove = false;
+            }
+        }
+        i--;
+        j--;
+    }
     return allMoves;
 }
 
@@ -247,16 +467,127 @@ std::vector<Position> getMovesForRook(int x, int y)
 std::vector<Position> getMovesForBishop(int x, int y)
 {
     std::vector<Position> allMoves;
-
-    for (int i = x - 1; i <= x + 1; i++) {
-        for (int j = y - 1; j <= y + 1; j++) {
-            bool validBorders = (i >= 0 && i <= 7) && (j >= 0 && j <= 7);
-            bool samePosition = (i == x && j == y);
-            bool getPos = validBorders && !samePosition;
-            if (getPos) {
+    char colour = ChessBoard[x][y].colour;
+    bool canMove = true;
+    int i, j;
+    i = x + 1;
+    j = y + 1;
+    //x + 1, y + 1
+    while (canMove)
+    {
+        bool validBorders = (i >= 0 && i <= 7 && j >= 0 && j <= 7);
+        if (i == 7 && j == 7) {
+            canMove = false;
+        }
+        if (!ChessBoard[i][j].pieceIsPresent && validBorders)
+        {
+            allMoves.push_back({ i, j });
+        }
+        else if (ChessBoard[i][j].pieceIsPresent)
+        {
+            if (ChessBoard[i][j].colour != colour)
+            {
                 allMoves.push_back({ i, j });
+                canMove = false;
+            }
+            else if (ChessBoard[i][j].colour == colour)
+            {
+                canMove = false;
             }
         }
+        i++;
+        j++;
+    }
+
+    canMove = true;
+    //x - 1, y + 1
+    i = x - 1;
+    j = y + 1;
+    while (canMove)
+    {
+        bool validBorders = (i >= 0 && i <= 7 && j >= 0 && j <= 7);
+        if (i == 0 && j == 7) {
+            canMove = false;
+        }
+        if (!ChessBoard[i][j].pieceIsPresent && validBorders)
+        {
+            allMoves.push_back({ i, j });
+        }
+        else if (ChessBoard[i][j].pieceIsPresent)
+        {
+            if (ChessBoard[i][j].colour != colour)
+            {
+                allMoves.push_back({ i, j });
+                canMove = false;
+            }
+            else if (ChessBoard[i][j].colour == colour)
+            {
+                canMove = false;
+            }
+        }
+        i--;
+        j++;
+    }
+
+    canMove = true;
+    //y - 1, x + 1
+    i = x + 1;
+    j = y - 1;
+
+    while (canMove)
+    {
+        bool validBorders = (i >= 0 && i <= 7 && j >= 0 && j <= 7);
+        if (j == 0 && i == 7) {
+            canMove = false;
+        }
+        if (!ChessBoard[i][j].pieceIsPresent && validBorders)
+        {
+            allMoves.push_back({ i, j });
+        }
+        else if (ChessBoard[i][j].pieceIsPresent)
+        {
+            if (ChessBoard[i][j].colour != colour)
+            {
+                allMoves.push_back({ i, j });
+                canMove = false;
+            }
+            else if (ChessBoard[i][j].colour == colour)
+            {
+                canMove = false;
+            }
+        }
+        i++;
+        j--;
+    }
+
+    canMove = true;
+    //y - 1, x - 1
+    i = x - 1;
+    j = y - 1;
+    while (canMove)
+    {
+        bool validBorders = (i >= 0 && i <= 7 && j >= 0 && j <= 7);
+        if (j == 0 && i == 0) {
+            canMove = false;
+        }
+        if (!ChessBoard[i][j].pieceIsPresent && validBorders)
+        {
+            allMoves.push_back({ i, j });
+        }
+        else if (ChessBoard[i][j].pieceIsPresent)
+        {
+            if (ChessBoard[i][j].colour != colour)
+            {
+                allMoves.push_back({ i, j });
+                canMove = false;
+            }
+            else if (ChessBoard[i][j].colour == colour)
+            {
+                canMove = false;
+            }
+        }
+        i--;
+        j--;
     }
 
     return allMoves;
@@ -284,78 +615,83 @@ std::vector<Position> getMovesForKnight(int x, int y)
         }
     }
 
-
     // y + 1, x + 2
     xPos = x + 2;
     yPos = y + 1;
-    bool validBorders = (xPos >= 0 && xPos <= 7 && yPos >= 0 && yPos <= 7);
-    if (validBorders) {
+    bool validBorders1 = (xPos >= 0 && xPos <= 7 && yPos >= 0 && yPos <= 7);
+    if (validBorders1) {
         canCapture = ChessBoard[xPos][yPos].colour != colour;
         canMoveTo = (!ChessBoard[xPos][yPos].pieceIsPresent || canCapture);
         if (canMoveTo) {
             allMoves.push_back({ xPos, yPos });
         }
     }
+    
     // y - 1, x + 2
     xPos = x + 2;
     yPos = y - 1;
-    bool validBorders = (xPos >= 0 && xPos <= 7 && yPos >= 0 && yPos <= 7);
-    if (validBorders) {
+    bool validBorders2 = (xPos >= 0 && xPos <= 7 && yPos >= 0 && yPos <= 7);
+    if (validBorders2) {
         canCapture = ChessBoard[xPos][yPos].colour != colour;
         canMoveTo = (!ChessBoard[xPos][yPos].pieceIsPresent || canCapture);
         if (canMoveTo) {
             allMoves.push_back({ xPos, yPos });
         }
     }
+    
     // y - 2, x + 1
     xPos = x + 1;
     yPos = y - 2;
-    bool validBorders = (xPos >= 0 && xPos <= 7 && yPos >= 0 && yPos <= 7);
-    if (validBorders) {
+    bool validBorders3 = (xPos >= 0 && xPos <= 7 && yPos >= 0 && yPos <= 7);
+    if (validBorders3) {
         canCapture = ChessBoard[xPos][yPos].colour != colour;
         canMoveTo = (!ChessBoard[xPos][yPos].pieceIsPresent || canCapture);
         if (canMoveTo) {
             allMoves.push_back({ xPos, yPos });
         }
     }
+    
     // y - 2, x - 1
     xPos = x - 1;
     yPos = y - 2;
-    bool validBorders = (xPos >= 0 && xPos <= 7 && yPos >= 0 && yPos <= 7);
-    if (validBorders) {
+    bool validBorders4 = (xPos >= 0 && xPos <= 7 && yPos >= 0 && yPos <= 7);
+    if (validBorders4) {
         canCapture = ChessBoard[xPos][yPos].colour != colour;
         canMoveTo = (!ChessBoard[xPos][yPos].pieceIsPresent || canCapture);
         if (canMoveTo) {
             allMoves.push_back({ xPos, yPos });
         }
     }
+    
     // y - 1, x - 2
     xPos = x - 2;
     yPos = y - 1;
-    bool validBorders = (xPos >= 0 && xPos <= 7 && yPos >= 0 && yPos <= 7);
-    if (validBorders) {
+    bool validBorders5 = (xPos >= 0 && xPos <= 7 && yPos >= 0 && yPos <= 7);
+    if (validBorders5) {
         canCapture = ChessBoard[xPos][yPos].colour != colour;
         canMoveTo = (!ChessBoard[xPos][yPos].pieceIsPresent || canCapture);
         if (canMoveTo) {
             allMoves.push_back({ xPos, yPos });
         }
     }
+    
     // y + 1, x - 2
     xPos = x - 2;
     yPos = y + 1;
-    bool validBorders = (xPos >= 0 && xPos <= 7 && yPos >= 0 && yPos <= 7);
-    if (validBorders) {
+    bool validBorders6 = (xPos >= 0 && xPos <= 7 && yPos >= 0 && yPos <= 7);
+    if (validBorders6) {
         canCapture = ChessBoard[xPos][yPos].colour != colour;
         canMoveTo = (!ChessBoard[xPos][yPos].pieceIsPresent || canCapture);
         if (canMoveTo) {
             allMoves.push_back({ xPos, yPos });
         }
     }
+    
     // y + 2, x - 1
     xPos = x - 1;
     yPos = y + 2;
-    bool validBorders = (xPos >= 0 && xPos <= 7 && yPos >= 0 && yPos <= 7);
-    if (validBorders) {
+    bool validBorders7 = (xPos >= 0 && xPos <= 7 && yPos >= 0 && yPos <= 7);
+    if (validBorders7) {
         canCapture = ChessBoard[xPos][yPos].colour != colour;
         canMoveTo = (!ChessBoard[xPos][yPos].pieceIsPresent || canCapture);
         if (canMoveTo) {
