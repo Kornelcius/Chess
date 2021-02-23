@@ -286,12 +286,82 @@ std::vector<Position> getMovesForKnight(int x, int y)
 
 
     // y + 1, x + 2
+    xPos = x + 2;
+    yPos = y + 1;
+    bool validBorders = (xPos >= 0 && xPos <= 7 && yPos >= 0 && yPos <= 7);
+    if (validBorders) {
+        canCapture = ChessBoard[xPos][yPos].colour != colour;
+        canMoveTo = (!ChessBoard[xPos][yPos].pieceIsPresent || canCapture);
+        if (canMoveTo) {
+            allMoves.push_back({ xPos, yPos });
+        }
+    }
     // y - 1, x + 2
+    xPos = x + 2;
+    yPos = y - 1;
+    bool validBorders = (xPos >= 0 && xPos <= 7 && yPos >= 0 && yPos <= 7);
+    if (validBorders) {
+        canCapture = ChessBoard[xPos][yPos].colour != colour;
+        canMoveTo = (!ChessBoard[xPos][yPos].pieceIsPresent || canCapture);
+        if (canMoveTo) {
+            allMoves.push_back({ xPos, yPos });
+        }
+    }
     // y - 2, x + 1
+    xPos = x + 1;
+    yPos = y - 2;
+    bool validBorders = (xPos >= 0 && xPos <= 7 && yPos >= 0 && yPos <= 7);
+    if (validBorders) {
+        canCapture = ChessBoard[xPos][yPos].colour != colour;
+        canMoveTo = (!ChessBoard[xPos][yPos].pieceIsPresent || canCapture);
+        if (canMoveTo) {
+            allMoves.push_back({ xPos, yPos });
+        }
+    }
     // y - 2, x - 1
+    xPos = x - 1;
+    yPos = y - 2;
+    bool validBorders = (xPos >= 0 && xPos <= 7 && yPos >= 0 && yPos <= 7);
+    if (validBorders) {
+        canCapture = ChessBoard[xPos][yPos].colour != colour;
+        canMoveTo = (!ChessBoard[xPos][yPos].pieceIsPresent || canCapture);
+        if (canMoveTo) {
+            allMoves.push_back({ xPos, yPos });
+        }
+    }
     // y - 1, x - 2
+    xPos = x - 2;
+    yPos = y - 1;
+    bool validBorders = (xPos >= 0 && xPos <= 7 && yPos >= 0 && yPos <= 7);
+    if (validBorders) {
+        canCapture = ChessBoard[xPos][yPos].colour != colour;
+        canMoveTo = (!ChessBoard[xPos][yPos].pieceIsPresent || canCapture);
+        if (canMoveTo) {
+            allMoves.push_back({ xPos, yPos });
+        }
+    }
     // y + 1, x - 2
+    xPos = x - 2;
+    yPos = y + 1;
+    bool validBorders = (xPos >= 0 && xPos <= 7 && yPos >= 0 && yPos <= 7);
+    if (validBorders) {
+        canCapture = ChessBoard[xPos][yPos].colour != colour;
+        canMoveTo = (!ChessBoard[xPos][yPos].pieceIsPresent || canCapture);
+        if (canMoveTo) {
+            allMoves.push_back({ xPos, yPos });
+        }
+    }
     // y + 2, x - 1
+    xPos = x - 1;
+    yPos = y + 2;
+    bool validBorders = (xPos >= 0 && xPos <= 7 && yPos >= 0 && yPos <= 7);
+    if (validBorders) {
+        canCapture = ChessBoard[xPos][yPos].colour != colour;
+        canMoveTo = (!ChessBoard[xPos][yPos].pieceIsPresent || canCapture);
+        if (canMoveTo) {
+            allMoves.push_back({ xPos, yPos });
+        }
+    }
 
 
 
