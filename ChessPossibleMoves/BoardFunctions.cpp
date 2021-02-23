@@ -64,23 +64,23 @@ std::vector<Position> getAllMovesForType(int x, int y, std::string type)
     }
     else if (type == "Queen")
     {
-        getAllMovesForQueen(x, y);
+       result = getAllMovesForQueen(x, y);
     }
     else if (type == "Rook")
     {
-        getAllMovesForRook(x, y);
+       result = getAllMovesForRook(x, y);
     }
     else if (type == "Bishop")
     {
-        getAllMovesForBishop(x, y);
+       result = getAllMovesForBishop(x, y);
     }
     else if (type == "Knight")
     {
-        getAllMovesForKnight(x, y);
+       result = getAllMovesForKnight(x, y);
     }
     else if (type == "Pawn")
     {
-        getAllMovesForPawn(x, y);
+       result = getAllMovesForPawn(x, y);
     }
 
     return result;
@@ -104,7 +104,7 @@ std::vector<Position> getAllMovesForKing(int x, int y)
    return allMoves;
 }
 
-void getAllMovesForQueen(int x, int y)
+std::vector<Position> getAllMovesForQueen(int x, int y)
 {
     std::vector<Position> allMoves;
 
@@ -118,9 +118,11 @@ void getAllMovesForQueen(int x, int y)
             }
         }
     }
+
+    return allMoves;
 }
 
-void getAllMovesForRook(int x, int y)
+std::vector<Position> getAllMovesForRook(int x, int y)
 {
     std::vector<Position> allMoves;
 
@@ -134,9 +136,11 @@ void getAllMovesForRook(int x, int y)
             }
         }
     }
+
+    return allMoves;
 }
 
-void getAllMovesForBishop(int x, int y)
+std::vector<Position> getAllMovesForBishop(int x, int y)
 {
     std::vector<Position> allMoves;
 
@@ -150,9 +154,11 @@ void getAllMovesForBishop(int x, int y)
             }
         }
     }
+
+    return allMoves;
 }
 
-void getAllMovesForKnight(int x, int y)
+std::vector<Position> getAllMovesForKnight(int x, int y)
 {
     std::vector<Position> allMoves;
 
@@ -166,9 +172,11 @@ void getAllMovesForKnight(int x, int y)
             }
         }
     }
+
+    return allMoves;
 }
 
-void getAllMovesForPawn(int x, int y)
+std::vector<Position> getAllMovesForPawn(int x, int y)
 {
     std::vector<Position> allMoves;
 
@@ -182,4 +190,6 @@ void getAllMovesForPawn(int x, int y)
             }
         }
     }
+
+    return allMoves;
 }
