@@ -23,8 +23,6 @@ int main()
         }
 
         std::cout << "Pozycja x, y " << pos.x << " " << pos.y << std::endl;
-        //std::cout << ChessBoard[pos.x][pos.y].type << std::endl;
-        //std::cout << ChessBoard[pos.x][pos.y].colour << std::endl;
         std::vector<Position> allMoves = getMoves(pos.x, pos.y);
 
         if (allMoves.size() != 0) 
@@ -44,11 +42,6 @@ int main()
             koniec = true;
         }
     }
-
-    //getPossibleMoves(figure);
-        //getAllMoves(figure);
-        //removeImpossibleMoves(figure);
-    //printMoves();
 
     return 0;
 }
